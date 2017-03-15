@@ -25,17 +25,21 @@ session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 #print '-----------------------'
 
-url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2'
-response = session.get(url)
-tweets = json.loads(response.content)
-#print tweets
-
-txt = str(tweets)
-print txt
-
-
 output_file = open('logs.txt', 'w')
+
+
+url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2'
+output_file.write('URL: ' + str(url) + '\n')
+
+response = session.get(url)
+output_file.write('response.status_code: ' + str(response.status_code) + '\n')
+
+tweets = json.loads(response.content)
+output_file.write('len tweets: ' + str(len(tweets)) + '\n')
+
+output_file.write('content tweets: \n')
 output_file.write(str(tweets))
-output_file.write('\n')
+output_file.write('\n\n\n')
+
 output_file.close()
 
