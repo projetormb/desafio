@@ -47,7 +47,8 @@ output_file.write('TEXTS:  \n\n\n')
 
 for t in tweets:
     if 'text' in t:
-        output_file.write('text: ' + str(t['text']) + '\n')
+        text = t['text'].decode('latin1')
+        output_file.write('text: ' + str(text) + '\n')
 output_file.write('\n\n\n-------------------------------------\n\n\n')
 
 
