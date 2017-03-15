@@ -11,12 +11,10 @@ API_SECRET = 'vGt9rsNMl4TPp7H3g5GIsCEpUE050MREopHDNI35Xf8FLm4neI'
 ACCESS_TOKEN = '42063631-gDtvbUX5BzfIyBfkpO7zSt9j0vCy11VU5ua8HR9I0'
 ACCESS_TOKEN_SECRET = 'M0ar8Yggt0OpE4zwjyTXPt2ctFM56pAmP0TTHbMFbeUOm'
 
+
+DB_PWD = 'Desafio2017'
+
 session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-
-
-#print tweets.keys()
-#print tweets['statuses'][0].keys()
-
 
 
 
@@ -55,3 +53,4 @@ if len(tweets) > 0:
     output_file.write('---------------------------------------------------------------\n\n')
 
 output_file.close()
+
