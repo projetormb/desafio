@@ -44,13 +44,12 @@ for t in tweets:
 output_file.write('\n\n\n-------------------------------------\n\n\n')
 
 
-output_file.write('TEXTS:  \n\n\n')
-
-for t in tweets:
-    if 'text' in t:
-        text = t['text'].decode('latin1')
-        output_file.write('text: ' + str(text) + '\n')
-output_file.write('\n\n\n-------------------------------------\n\n\n')
+#output_file.write('TEXTS:  \n\n\n')
+#for t in tweets:
+#    if 'text' in t:
+        #text = t['text'].decode('latin1')
+        #output_file.write('text: ' + str(text) + '\n')
+#output_file.write('\n\n\n-------------------------------------\n\n\n')
 
 
 output_file.write('content tweets: \n')
