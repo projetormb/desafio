@@ -35,7 +35,8 @@ output_file.write('URL: ' + str(url) + '\n\n')
 response = session.get(url)
 output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
 
-tweets = json.loads(response.content)
+responseLatin1 = unicode(response.content, 'latin-1')
+tweets = json.loads(responseLatin1)
 output_file.write('len tweets: ' + str(len(tweets)) + '\n\n')
 
 for t in tweets:
