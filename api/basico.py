@@ -65,10 +65,6 @@ output_file.write('\n\n\n')
 output_file.write('---------------------------------------------------')
 output_file.write('\n\n\n')
 
-output_file.write('content tweets2: \n')
-output_file.write(str(tweets2))
-output_file.write('\n\n\n')
-
 
 output_file.write('\n\n\n =================================       \n\n\n')
 
