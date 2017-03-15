@@ -28,7 +28,7 @@ session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 output_file = open('logs.txt', 'w')
 
 
-url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2'
+url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=rmbertoni&count=5'
 output_file.write('URL: ' + str(url) + '\n\n')
 
 response = session.get(url)
