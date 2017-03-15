@@ -55,7 +55,7 @@ output_file.write('-------------------------------------------------------------
 
 output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
 
- if len(tweets) > 0:
+if len(tweets) > 0:
     for tweet in tweets:
         output_file.write('tweet: ' + str(tweet) + '\n')
     output_file.write('---------------------------------------------------------------\n\n')
