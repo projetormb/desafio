@@ -55,7 +55,7 @@ if len(tweets) > 0:
     for tweet in tweets:
         tweetText = tweet['text'].encode('utf8')
 
-        db.Inserir('rmbertoni', tweetText)
+        #db.Inserir('rmbertoni', tweetText)
 
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
     output_file.write('---------------------------------------------------------------\n\n')

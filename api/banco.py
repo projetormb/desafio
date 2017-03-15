@@ -12,7 +12,6 @@ class Database(object):
         self.connection = MySQLdb.connect(host = self.host, user = self.user, passwd = self.passwd, db = self.db)
 
     def Inserir(self, usuario, texto):
-        #comando :: 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES ('rmbertoni', 'algum tweet lançado');'
 
         values = []
         values.append(usuario)
