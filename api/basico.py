@@ -39,10 +39,16 @@ output_file.write('len tweets: ' + str(len(tweets)) + '\n\n')
 
 for t in tweets:
     output_file.write('t: ' + str(t) + '\n')
+output_file.write('\n\n\n-------------------------------------\n\n\n')
 
-output_file.write('\n\n\n')
-output_file.write('-------------------------------------')
-output_file.write('\n\n\n')
+
+output_file.write('TEXTS:  \n\n\n')
+
+for t in tweets:
+    if 'text' in t:
+        output_file.write('text: ' + str(t['text']) + '\n')
+output_file.write('\n\n\n-------------------------------------\n\n\n')
+
 
 output_file.write('content tweets: \n')
 output_file.write(str(tweets))
