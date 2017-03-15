@@ -18,10 +18,10 @@ class Database(object):
         values.append(usuario)
         values.append(texto)
 
-        q  = 'START TRANSACTION;'
-        q += 'set names utf8;'
-        q += """INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);"""
-        q += 'COMMIT;'
+        #q  = 'START TRANSACTION;'
+        #q += 'set names utf8;'
+        q = """INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);"""
+        #q += 'COMMIT;'
 
 
         my_host = 'mysql.mbcorporate.com.br'
@@ -29,7 +29,7 @@ class Database(object):
         my_passwd = 'Desafio2017'
         my_dbname = 'mbcorporate01'
 
-        connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
+        connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname, charset='utf8', init_command='SET NAMES UTF8')
         cursor = connection.cursor()
         try:
             cursor.execute(q, values)
