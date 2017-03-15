@@ -20,11 +20,8 @@ class Database(object):
         values = []
         values.append(usuario)
         values.append(texto)
-        #values = ['zezinho', 'algum texto do zezinho']
 
         q  = 'START TRANSACTION;'
-
-        #cur.execute("set names utf8;") 
         q += 'set names utf8;'
         q += 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);'
         q += 'COMMIT;'

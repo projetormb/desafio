@@ -14,13 +14,20 @@ ACCESS_TOKEN = '42063631-gDtvbUX5BzfIyBfkpO7zSt9j0vCy11VU5ua8HR9I0'
 ACCESS_TOKEN_SECRET = 'M0ar8Yggt0OpE4zwjyTXPt2ctFM56pAmP0TTHbMFbeUOm'
 
 
-DB_PWD = 'Desafio2017'
+#screen_name = 'rmbertoni'
+#max_tweets = 5
+
+screen_name = 'lupcoelho'
+max_tweets = 7
 
 session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 
 
-url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=rmbertoni&count=5'
+url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name='
+url += screen_name
+url += '&count='
+url += str(max_tweets)
 
 response = session.get(url)
 
@@ -58,8 +65,8 @@ if len(tweets) > 0:
         db.Inserir('rmbertoni', tweetText)
 
 
-        tweetLatin = tweetText.decode('latin1')
-        db.Inserir('rmbertoni', tweetLatin)
+        #tweetLatin = tweetText.decode('latin1')
+        #db.Inserir('rmbertoni', tweetLatin)
 
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
         output_file.write('tweetLatin: ' + str(tweetLatin.encode('utf8')) + '\n')
