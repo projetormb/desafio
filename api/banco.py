@@ -4,12 +4,16 @@ class Database(object):
 
     def __init__(self):
 
-        my_host = 'mysql.mbcorporate01.com.br'
+        my_host = 'mysql.mbcorporate.com.br'
         my_user = 'mbcorporate01'
         my_passwd = 'Desafio2017'
         my_dbname = 'mbcorporate01'
 
-        self.connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
+        try:
+            self.connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
+        except Exception as e:
+            print e # testar !!!!!!!!!!
+        
 
     def Inserir(self, usuario, texto):
 
