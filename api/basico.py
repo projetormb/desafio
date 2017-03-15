@@ -30,10 +30,9 @@ output_file = open('logs.txt', 'w')
 
 
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=rmbertoni&count=5'
-output_file.write('URL: ' + str(url) + '\n\n')
 
 response = session.get(url)
-output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
+
 
 
 #http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python
@@ -43,35 +42,28 @@ tweets = json.loads(response.content)
 
 
 
-output_file.write('len tweets: ' + str(len(tweets)) + '\n\n')
-
-for t in tweets:
-    output_file.write('t: ' + str(t) + '\n')
-output_file.write('\n\n\n-------------------------------------\n\n\n')
+output_file.write('URL: ' + str(url) + '\n\n')
+output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
+output_file.write('---------------------------------------------------------------\n\n')
 
 
-#output_file.write('TEXTS:  \n\n\n')
-#for t in tweets:
-#    if 'text' in t:
-        #text = t['text'].decode('latin1')
-        #output_file.write('text: ' + str(text) + '\n')
-#output_file.write('\n\n\n-------------------------------------\n\n\n')
-
-
-output_file.write('content tweets: \n')
+output_file.write('REST retornado (json format): \n\n')
 output_file.write(str(tweets))
-output_file.write('\n\n\n')
-
-output_file.write('---------------------------------------------------')
-output_file.write('\n\n\n')
+output_file.write('\n\n')
+output_file.write('---------------------------------------------------------------\n\n')
 
 
-output_file.write('\n\n\n =================================       \n\n\n')
+output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
 
-for t in tweets:
-    result = t['text'].encode('utf8')
-    output_file.write('result: ' + str(result) + '\n')
-output_file.write('\n\n\n-------------------------------------\n\n\n')
+ if len(tweets) > 0:
+    for tweet in tweets:
+        output_file.write('tweet: ' + str(tweet) + '\n')
+    output_file.write('---------------------------------------------------------------\n\n')
+
+    for tweet in tweets:
+        tweetText = tweet['text'].encode('utf8')
+        output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
+    output_file.write('---------------------------------------------------------------\n\n')
 
 
 
