@@ -55,9 +55,17 @@ if len(tweets) > 0:
 
     #db = Database()
 
+    output_file.close()
+    output_file = open('logs.txt', 'a')
+
+
     for tweet in tweets:
         output_file.write('tweet: ' + str(tweet) + '\n\n')
     output_file.write('---------------------------------------------------------------\n\n')
+
+
+    output_file.close()
+    output_file = open('logs.txt', 'a')
 
     for tweet in tweets:
         tweetText = tweet['text'].encode('utf8')
@@ -68,6 +76,9 @@ if len(tweets) > 0:
 
         #tweetLatin = tweetText.decode('latin1')
         #db.Inserir('rmbertoni', tweetLatin)
+
+        output_file.close()
+        output_file = open('logs.txt', 'a')
 
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
         #output_file.write('tweetLatin: ' + str(tweetLatin.encode('utf8')) + '\n')
