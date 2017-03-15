@@ -28,6 +28,7 @@ class Database(object):
 
         cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(q, values)
+        cursor.close()
 
 
 
