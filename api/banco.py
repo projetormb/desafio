@@ -45,4 +45,5 @@ class Database(object):
 
 
     def __del__(self):
-        self.connection.close()
+        if self.connection is not None:
+            self.connection.close()
