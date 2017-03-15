@@ -11,20 +11,21 @@ ACCESS_TOKEN = '42063631-gDtvbUX5BzfIyBfkpO7zSt9j0vCy11VU5ua8HR9I0'
 ACCESS_TOKEN_SECRET = 'M0ar8Yggt0OpE4zwjyTXPt2ctFM56pAmP0TTHbMFbeUOm'
 
 session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
 #response = session.get('https://api.twitter.com/1.1/search/tweets.json?q=%23python')
 #print response.status_code
 #print requests.utils.quote("#python")
-url = "https://api.twitter.com/1.1/search/tweets.json?q=%s"
-url = url % (requests.utils.quote("#python"))
-response = session.get(url)
+#url = "https://api.twitter.com/1.1/search/tweets.json?q=%s"
+#url = url % (requests.utils.quote("#python"))
+#response = session.get(url)
+#tweets = json.loads(response.content)
 
-tweets = json.loads(response.content)
+#print tweets.keys()
+#print tweets['statuses'][0].keys()
 
-print tweets.keys()
-print tweets['statuses'][0].keys()
-
-print '-----------------------'
+#print '-----------------------'
 
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2'
 response = session.get(url)
+tweets = json.loads(response.content)
 print tweets.keys()
