@@ -62,6 +62,7 @@ if len(tweets) > 0:
     for tweet in tweets:
         tweetText = tweet['text'].encode('utf8')
 
+        db = Database()
         db.Inserir('rmbertoni', tweetText)
 
 
