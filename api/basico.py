@@ -69,7 +69,7 @@ output_file.write('\n\n\n')
 output_file.write('\n\n\n =================================       \n\n\n')
 
 for t in tweets:
-    result = t[u'text'].encode('utf8')
+    result = t['text'].encode('utf8')
     output_file.write('result: ' + str(result) + '\n')
 output_file.write('\n\n\n-------------------------------------\n\n\n')
 
