@@ -35,8 +35,14 @@ output_file.write('URL: ' + str(url) + '\n\n')
 response = session.get(url)
 output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
 
+
+#http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python
+
 responseLatin1 = unicode(response.content, 'latin-1')
 tweets = json.loads(responseLatin1)
+
+
+
 output_file.write('len tweets: ' + str(len(tweets)) + '\n\n')
 
 for t in tweets:
