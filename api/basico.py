@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin1 -*-
 
 import json
 import requests.utils
