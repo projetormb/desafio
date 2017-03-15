@@ -4,15 +4,11 @@ class Database(object):
 
     def __init__(self):
 
-        my_host = 'mysql.mbcorporate.com.br'
-        my_user = 'mbcorporate01'
-        my_passwd = 'Desafio2017'
-        my_dbname = 'mbcorporate01'
-
-        try:
-            self.connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
-        except Exception as e:
-            print e # testar !!!!!!!!!!
+        #my_host = 'mysql.mbcorporate.com.br'
+        #my_user = 'mbcorporate01'
+        #my_passwd = 'Desafio2017'
+        #my_dbname = 'mbcorporate01'
+        #self.connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
         
 
     def Inserir(self, usuario, texto):
@@ -26,9 +22,18 @@ class Database(object):
         q += 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);'
         q += 'COMMIT;'
 
-        cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
+
+        my_host = 'mysql.mbcorporate.com.br'
+        my_user = 'mbcorporate01'
+        my_passwd = 'Desafio2017'
+        my_dbname = 'mbcorporate01'
+
+        connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
+
+        cursor = connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(q, values)
         cursor.close()
+        connection.close()
 
 
 
@@ -49,5 +54,5 @@ class Database(object):
     #    cursor.execute(q, params)
 
 
-    def __del__(self):
-        self.connection.close()
+    #def __del__(self):
+    #    self.connection.close()

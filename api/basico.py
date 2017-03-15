@@ -53,7 +53,7 @@ output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
 
 if len(tweets) > 0:
 
-    db = Database()
+    #db = Database()
 
     for tweet in tweets:
         output_file.write('tweet: ' + str(tweet) + '\n\n')
