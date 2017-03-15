@@ -1,4 +1,6 @@
-# fui desafiado estou tentando atualizar o git
+Desafio de API
+
+Comunicando com o Twitter
 
 
 $ pip install requests-oauthlib
