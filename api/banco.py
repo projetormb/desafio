@@ -43,11 +43,10 @@ class Database(object):
         #return cursor.fetchall()
 
 
-    def queryWithParams(self, q, params):
-        cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(q, params)
+    #def queryWithParams(self, q, params):
+    #    cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
+    #    cursor.execute(q, params)
 
 
     def __del__(self):
-        if self.connection is not None:
-            self.connection.close()
+        self.connection.close()
