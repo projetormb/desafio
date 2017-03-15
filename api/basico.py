@@ -1,7 +1,6 @@
 # -*- coding: latin1 -*-
 
 import json
-import yaml
 import requests.utils
 
 from requests_oauthlib import OAuth1Session
@@ -40,7 +39,7 @@ output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
 #http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python
 
 tweets = json.loads(response.content)
-tweets2 = yaml.safe_load(response.content)
+
 
 
 
@@ -69,6 +68,16 @@ output_file.write('\n\n\n')
 output_file.write('content tweets2: \n')
 output_file.write(str(tweets2))
 output_file.write('\n\n\n')
+
+
+output_file.write('\n\n\n =================================       \n\n\n')
+
+for t in tweets:
+    result = t[u'text'].encode('utf8')
+    output_file.write('result: ' + str(result) + '\n')
+output_file.write('\n\n\n-------------------------------------\n\n\n')
+
+
 
 output_file.close()
 
