@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 import json
 import requests.utils
@@ -46,8 +47,6 @@ output_file.write('TEXTS:  \n\n\n')
 
 for t in tweets:
     if 'text' in t:
-        textDecoded = t['text'].decode("utf-8")
-
         output_file.write('text: ' + str(t['text']) + '\n')
 output_file.write('\n\n\n-------------------------------------\n\n\n')
 
