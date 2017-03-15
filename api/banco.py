@@ -20,7 +20,7 @@ class Database(object):
 
         q  = 'START TRANSACTION;'
         q += 'set names utf8;'
-        q += 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);'
+        q += """INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);"""
         q += 'COMMIT;'
 
 
@@ -30,10 +30,12 @@ class Database(object):
         my_dbname = 'mbcorporate01'
 
         connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname)
-
-        cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(q, values)
-        cursor.close()
+        cursor = connection.cursor()
+        try:
+            cursor.execute(q, values)
+            connection.commit()
+        except:
+            connection.rollback()
         connection.close()
 
 
