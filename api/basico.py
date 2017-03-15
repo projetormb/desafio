@@ -18,7 +18,7 @@ ACCESS_TOKEN_SECRET = 'M0ar8Yggt0OpE4zwjyTXPt2ctFM56pAmP0TTHbMFbeUOm'
 #max_tweets = 5
 
 screen_name = 'lupcoelho'
-max_tweets = 7
+max_tweets = 2
 
 session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
@@ -67,12 +67,10 @@ if len(tweets) > 0:
     output_file.close()
     output_file = open('logs.txt', 'a')
 
+    db = Database()
+
     for tweet in tweets:
         tweetText = tweet['text'].encode('utf8')
-
-        db = Database()
-        db.Inserir('rmbertoni', tweetText)
-
 
         #tweetLatin = tweetText.decode('latin1')
         #db.Inserir('rmbertoni', tweetLatin)
@@ -82,6 +80,19 @@ if len(tweets) > 0:
 
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
         #output_file.write('tweetLatin: ' + str(tweetLatin.encode('utf8')) + '\n')
+
+        output_file.close()
+        output_file = open('logs.txt', 'a')
+        output_file.write('inserir no DB: ' + str(tweetText) + '\n')
+        output_file.close()
+        output_file = open('logs.txt', 'a')
+
+        db.Inserir(screen_name, tweetText)
+
+        output_file.close()
+        output_file = open('logs.txt', 'a')
+        output_file.write('feito \n')
+
 
     output_file.write('---------------------------------------------------------------\n\n')
 
