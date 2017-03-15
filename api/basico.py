@@ -58,7 +58,7 @@ if len(tweets) > 0:
         db.Inserir('rmbertoni', tweetText)
 
 
-        tweetLatin = tweetText.encode('latin1')
+        tweetLatin = tweetText.decode('latin1')
         db.Inserir('rmbertoni', tweetLatin)
 
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
