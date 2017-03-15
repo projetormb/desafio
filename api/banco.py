@@ -23,7 +23,10 @@ class Database(object):
         #values = ['zezinho', 'algum texto do zezinho']
 
         q  = 'START TRANSACTION;'
-        q = 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);'
+
+        #cur.execute("set names utf8;") 
+        q += 'set names utf8;'
+        q += 'INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);'
         q += 'COMMIT;'
 
         cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
