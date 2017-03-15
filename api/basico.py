@@ -22,3 +22,9 @@ tweets = json.loads(response.content)
 
 print tweets.keys()
 print tweets['statuses'][0].keys()
+
+print '-----------------------'
+
+url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2'
+response = session.get(url)
+print tweets.keys()
