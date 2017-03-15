@@ -13,51 +13,40 @@ ACCESS_TOKEN_SECRET = 'M0ar8Yggt0OpE4zwjyTXPt2ctFM56pAmP0TTHbMFbeUOm'
 
 session = OAuth1Session(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-#response = session.get('https://api.twitter.com/1.1/search/tweets.json?q=%23python')
-#print response.status_code
-#print requests.utils.quote("#python")
-#url = "https://api.twitter.com/1.1/search/tweets.json?q=%s"
-#url = url % (requests.utils.quote("#python"))
-#response = session.get(url)
-#tweets = json.loads(response.content)
 
 #print tweets.keys()
 #print tweets['statuses'][0].keys()
 
-#print '-----------------------'
 
-output_file = open('logs.txt', 'w')
 
 
 url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=rmbertoni&count=5'
 
 response = session.get(url)
 
-
-
-#http://stackoverflow.com/questions/956867/how-to-get-string-objects-instead-of-unicode-ones-from-json-in-python
-
 tweets = json.loads(response.content)
 
+# registrando logs em um arquivo texto.
 
-
+output_file = open('logs.txt', 'w')
 
 output_file.write('URL: ' + str(url) + '\n\n')
 output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
 output_file.write('---------------------------------------------------------------\n\n')
-
 
 output_file.write('REST retornado (json format): \n\n')
 output_file.write(str(tweets))
 output_file.write('\n\n')
 output_file.write('---------------------------------------------------------------\n\n')
 
+# https://twitter.com/rmbertoni/with_replies
+# Nesta URL é possível visualizar os tweets que a API está me retornando.
 
 output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
 
 if len(tweets) > 0:
     for tweet in tweets:
-        output_file.write('tweet: ' + str(tweet) + '\n')
+        output_file.write('tweet: ' + str(tweet) + '\n\n')
     output_file.write('---------------------------------------------------------------\n\n')
 
     for tweet in tweets:
@@ -65,7 +54,4 @@ if len(tweets) > 0:
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
     output_file.write('---------------------------------------------------------------\n\n')
 
-
-
 output_file.close()
-
