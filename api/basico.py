@@ -3,6 +3,8 @@
 import json
 import requests.utils
 
+from banco import Database
+
 from requests_oauthlib import OAuth1Session
 
 
@@ -43,12 +45,18 @@ output_file.write('-------------------------------------------------------------
 output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
 
 if len(tweets) > 0:
+
+    db = Database()
+
     for tweet in tweets:
         output_file.write('tweet: ' + str(tweet) + '\n\n')
     output_file.write('---------------------------------------------------------------\n\n')
 
     for tweet in tweets:
         tweetText = tweet['text'].encode('utf8')
+
+        db.Inserir('rmbertoni', tweetText)
+
         output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
     output_file.write('---------------------------------------------------------------\n\n')
 
