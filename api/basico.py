@@ -1,7 +1,9 @@
 
 import json
+import requests.utils
 
 from requests_oauthlib import OAuth1Session
+
 
 API_KEY = 'u9JQJ77IwU59dPM6RXYNo3HiR'
 API_SECRET = 'vGt9rsNMl4TPp7H3g5GIsCEpUE050MREopHDNI35Xf8FLm4neI'
