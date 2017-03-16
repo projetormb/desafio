@@ -24,10 +24,3 @@ def api():
     return jsonify(retorno)
 
 app.run()
-
-
-
-#@app.route('/login')
-#def tweets():
-#    username = request.args.get('username')
-#    password = request.args.get('password')

@@ -1,12 +1,9 @@
 # -*- coding: latin1 -*-
 
 import json
-#import requests.utils
 
 from banco import Database
-
 from requests_oauthlib import OAuth1Session
-
 
 def consumoTwitter(screen_name, max_tweets):
 

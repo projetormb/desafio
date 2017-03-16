@@ -1,9 +1,0 @@
-request : 
-
-request.form NOT noneImmutableMultiDict([('maxTweets', u'3')])3
-
-
-
-
-
-str maxTweets : 3int maxTweets : 3
