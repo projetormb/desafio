@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desafio de API</title>
-<link href="/static/Inspinia-2.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/Inspinia-2.7/font-awesome/css/font-awesome.css" rel="stylesheet">
-<link href="/static/Inspinia-2.7/css/animate.css" rel="stylesheet">
-<link href="/static/Inspinia-2.7/css/style.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Desafio de API</title>
+	<link href="./bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>Desafio de API</h1>
-<h2>Comunicando com o Twitter</h2>
+	<div class="container">
+
+		<h1>Desafio de API</h1>
+		<h2>Comunicando com o Twitter</h2>
+
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-6">
+					<label>Selecione a quantidade máxima de tweets</label>
+					<select class="form-control" name="maxTweets" id="maxTweets">
+						<option value="5">5 tweets</option>
+						<option value="10">10 tweets</option>
+						<option value="15">15 tweets</option>
+						<option value="20">20 tweets</option>
+						<option value="25">25 tweets</option>
+						<option value="30">30 tweets</option>
+						<option value="35">35 tweets</option>
+						<option value="40">40 tweets</option>
+						<option value="45">45 tweets</option>
+						<option value="50">50 tweets</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4">
+					<button type="button" class="btn btn-lg btn-primary" id="btnCarregarTweets">Carregar Tweets</button>
+				</div>
+				
+				<div class="col-sm-4">
+					<button type="button" class="btn btn-lg btn-success" id="btnNovaConsulta" disabled>Nova Consulta</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-12">
+				<div id="teste" class="list-group">
+					<!-- conteúdo aqui será substituído por jQuery + Ajax -->			
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="./jquery-3.1.1.min.js"></script>
+	<script src="./bootstrap.min.js"></script>
+
+	<script>
+		$('#btnCarregarTweets').click(function() {
+			$('#teste').html('<a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
+			$('#teste').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
+			$('#teste').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
+			$(this).attr('disabled', 'disabled');
+			$('#maxTweets').attr('disabled', 'disabled');
+			$('#btnNovaConsulta').removeProp('disabled');
+		});
+	</script>
 </body>
 </html>
