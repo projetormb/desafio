@@ -1,7 +1,7 @@
 # -*- coding: latin1 -*-
 
 import json
-import requests.utils
+#import requests.utils
 
 from banco import Database
 
