@@ -3,7 +3,6 @@ import MySQLdb
 class Database(object):
 
     def __init__(self):
-        # não vou fazer nada aqui...
         pass
 
     def Inserir(self, usuario, texto):

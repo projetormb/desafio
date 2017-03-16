@@ -81,7 +81,13 @@ def consumoTwitter(screen_name, max_tweets):
             output_file.close()
             output_file = open('logs.txt', 'a')
 
+            ##############################################################################################
+            # testar erro de caracteres como emotion icons !!!!!!!!!!!!!
+            ##############################################################################################
             db.Inserir(screen_name, tweetText)
+            ##############################################################################################
+
+
 
             output_file.close()
             output_file = open('logs.txt', 'a')
