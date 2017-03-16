@@ -12,12 +12,9 @@
         <h1>Desafio de API</h1>
         <h2>Comunicando com o Twitter</h2>
 
-        <h3> {{ dados.cabec3 }}  </h3>
-
         <!-- espaçamento entre cabeçalhos e início das divs... meio xing ling mas resolve -->
         <div style="padding-bottom:50px;">
         </div>
-
 
         <div class="form-group">
             <div class="row">
@@ -81,10 +78,14 @@
         });
 
         $('#btnCarregarTweets').click(function() {
+
+            $('#listaTweets').append('<p> Carregando... aguarde a lesmice ...');
+
             $.ajax({
                 type: "POST",
                 url: "/api",
-                data: { 'maxTweets' : $('#maxTweets').val() },
+                /*data: { 'maxTweets' : $('#maxTweets option:selected').val() },*/
+                data: { 'maxTweets' : 3 },
                 success: searchSuccess,
                 dataType: 'json'
             });
@@ -109,7 +110,7 @@
 
             $.each( data, function( key, value ) {
                 tweetHtml = '<a href="#" class="list-group-item">'
-                /*tweetHtml += '<h4 class="list-group-item-heading">' + 'Tweet Número ' + key + '</h4>' */
+                /*tweetHtml += '<h4 class="list-group-item-heading">' + 'algum cabeçalho ' + key + '</h4>' */
                 tweetHtml += '<p class="list-group-item-text">' + value + '</p></a>'
 
                 $('#listaTweets').append(tweetHtml);
