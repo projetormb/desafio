@@ -79,11 +79,16 @@
         $(document).ready(function() {
             $('#btnNovaConsulta').hide();
         });
-    
+
         $('#btnCarregarTweets').click(function() {
-            $('#listaTweets').html('<a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
-            $('#listaTweets').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
-            $('#listaTweets').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">Título do Tweet</h4><p class="list-group-item-text">Comentário do tweet de no máximo 140 caracteres</p></a>');
+            $.ajax({
+                type: "POST",
+                url: "/api",
+                data: { 'maxTweets' : $('#maxTweets').val() },
+                success: searchSuccess,
+                dataType: 'json'
+            });
+
             $(this).attr('disabled', true);
             $('#maxTweets').attr('disabled', true);
             $('#userName').attr('disabled', true);
@@ -97,6 +102,20 @@
             $('#listaTweets').empty();
             $(this).hide();
         });
+
+        function searchSuccess(data, textStatus, jqXHR)
+        {
+            $('#listaTweets').empty();
+
+            $.each( data, function( key, value ) {
+                tweetHtml = '<a href="#" class="list-group-item">'
+                /*tweetHtml += '<h4 class="list-group-item-heading">' + 'Tweet Número ' + key + '</h4>' */
+                tweetHtml += '<p class="list-group-item-text">' + value + '</p></a>'
+
+                $('#listaTweets').append(tweetHtml);
+            });
+        }
+
     </script>
 </body>
 </html>
