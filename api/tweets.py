@@ -18,7 +18,9 @@ def home():
 @app.route('/api', methods=['POST'])
 def api():
     maxTweets = int(request.form['maxTweets'])
-    retorno = consumoTwitter('rmbertoni', maxTweets)
+    userName = request.form['userName']
+
+    retorno = consumoTwitter(userName, maxTweets)
     return jsonify(retorno)
 
 app.run()

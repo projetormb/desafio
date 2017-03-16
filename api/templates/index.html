@@ -84,8 +84,9 @@
             $.ajax({
                 type: "POST",
                 url: "/api",
-                /*data: { 'maxTweets' : $('#maxTweets option:selected').val() },*/
-                data: { 'maxTweets' : 3 },
+                data: { 'maxTweets' : $('#maxTweets option:selected').val() ,
+                        'userName'  : $('#userName option:selected').val()
+                      },
                 success: searchSuccess,
                 dataType: 'json'
             });
