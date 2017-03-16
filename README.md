@@ -9,18 +9,14 @@ Comunicando com o Twitter !!!
 * Dependências:
 
 
-'MySQLdb'
-        $ pip install MySQL-python
+    'MySQLdb':
+    $ pip install MySQL-python
 
+    'OAuth1Session' em "requests_oauthlib":
+    $ pip install requests-oauthlib
 
-'OAuth1Session' em "requests_oauthlib"
-
-        $ pip install requests-oauthlib
-
-
-'Flask'
-
-        $ pip install flask
+    'Flask':
+    $ pip install flask
 
 
 
