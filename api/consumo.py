@@ -3,6 +3,7 @@
 import json
 
 from banco import Database
+from flask import jsonify
 from requests_oauthlib import OAuth1Session
 
 def consumoTwitter(screen_name, max_tweets):
@@ -84,7 +85,7 @@ def consumoTwitter(screen_name, max_tweets):
             ##############################################################################################
             # testar erro de caracteres como emotion icons !!!!!!!!!!!!!
             ##############################################################################################
-            db.Inserir(screen_name, tweetText)
+            #db.Inserir(screen_name, tweetText)
             ##############################################################################################
 
 
@@ -96,7 +97,20 @@ def consumoTwitter(screen_name, max_tweets):
 
         output_file.write('---------------------------------------------------------------\n\n')
 
+    """
+    output_file.close()
+    output_file = open('logs.txt', 'a')
+    output_file.write('vai retornar o jsonify \n')
+    output_file.write('retorno: ')
+    output_file.write(str(retorno))
+    output_file.write('\n')
+    output_file.write('ate aqui ok: ')
+    output_file.write('\n')
+    """
+
     output_file.close()
 
-    return retorno
 
+
+    return retorno
+    #return jsonify(retorno)

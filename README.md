@@ -18,6 +18,10 @@ Comunicando com o Twitter !!!
     'Flask':
     $ pip install flask
 
+    'Unit Test':
+    $ pip install unittest2
+
+
 
 
 * Observações:
