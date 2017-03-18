@@ -1,5 +1,11 @@
 # -*- coding: latin1 -*-
 
+
+##############################################################################################
+# verificar char set !!!!!!!!!!!!!!!!!
+##############################################################################################
+##############################################################################################
+
 import json
 
 from banco import Database
@@ -7,6 +13,8 @@ from flask import jsonify
 from requests_oauthlib import OAuth1Session
 
 def consumoTwitter(screen_name, max_tweets):
+
+    retorno = {}
 
     API_KEY = 'u9JQJ77IwU59dPM6RXYNo3HiR'
     API_SECRET = 'vGt9rsNMl4TPp7H3g5GIsCEpUE050MREopHDNI35Xf8FLm4neI'
@@ -22,8 +30,24 @@ def consumoTwitter(screen_name, max_tweets):
 
     response = session.get(url)
 
+    ###############################################################################
+    # MELHORAR
+    # MELHORAR
+    # MELHORAR
+    # MELHORAR
+    # MELHORAR
+    ###############################################################################
+    if response.status_code == 200:
+        pass
+    else:
+        if response.status_code == 404:
+            return retorno
+        else:
+            pass
+    ###############################################################################
+
+
     tweets = json.loads(response.content)
-    retorno = {}
 
     # registrando logs em um arquivo texto.
 
@@ -110,6 +134,8 @@ def consumoTwitter(screen_name, max_tweets):
 
     output_file.close()
 
+    if len(retorno) == 0:
+        retorno[0] = 'Nenhum tweet'
 
 
     return retorno

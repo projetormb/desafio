@@ -4,6 +4,13 @@ Desafio de API
 
 Comunicando com o Twitter !!!
 
+* Execução:
+
+	python tweets.py
+	Execute localhost:5000 no seu navegador para testar a página.
+
+	python testes.py
+	Testes automatizados do consumo da API
 
 
 * Dependências:

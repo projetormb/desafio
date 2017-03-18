@@ -22,6 +22,5 @@ def api():
 
     retorno = consumoTwitter(userName, maxTweets)
     return jsonify(retorno)
-    #return consumoTwitter(userName, maxTweets)
 
 app.run()
