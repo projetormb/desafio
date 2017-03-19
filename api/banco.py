@@ -19,11 +19,6 @@ class Database(object):
 
         q = """INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);"""
 
-        my_host = 'mysql.mbcorporate.com.br'
-        my_user = 'mbcorporate01'
-        my_passwd = 'Desafio2017'
-        my_dbname = 'mbcorporate01'
-
         connection = MySQLdb.connect(host = self.host, user = self.user, passwd = self.passwd, db = self.dbname, charset='utf8', init_command='SET NAMES UTF8')
         cursor = connection.cursor()
         try:
