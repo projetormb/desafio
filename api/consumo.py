@@ -12,9 +12,7 @@ from banco import Database
 from flask import jsonify
 from requests_oauthlib import OAuth1Session
 
-def consumoTwitter(screen_name, max_tweets):
-
-    retorno = {}
+def responseTwitter(screen_name, max_tweets):
 
     API_KEY = 'u9JQJ77IwU59dPM6RXYNo3HiR'
     API_SECRET = 'vGt9rsNMl4TPp7H3g5GIsCEpUE050MREopHDNI35Xf8FLm4neI'
@@ -28,7 +26,23 @@ def consumoTwitter(screen_name, max_tweets):
     url += '&count='
     url += str(max_tweets)
 
-    response = session.get(url)
+    return session.get(url)
+
+def consumoTwitter(screen_name, max_tweets):
+
+    output_file = open('logs.txt', 'w')
+
+    retorno = {}
+
+    #response = session.get(url)
+
+    output_file.write('chamar responseTwitter' + '\n\n')
+
+    response = responseTwitter(screen_name, max_tweets)
+
+    output_file.write('voltou responseTwitter' + '\n\n')
+    output_file.write('---------------------------------------------------------------\n\n')
+
 
     ###############################################################################
     # MELHORAR
@@ -51,9 +65,8 @@ def consumoTwitter(screen_name, max_tweets):
 
     # registrando logs em um arquivo texto.
 
-    output_file = open('logs.txt', 'w')
 
-    output_file.write('URL: ' + str(url) + '\n\n')
+    #output_file.write('URL: ' + str(url) + '\n\n')
     output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
     output_file.write('---------------------------------------------------------------\n\n')
 

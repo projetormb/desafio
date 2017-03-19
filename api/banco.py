@@ -4,6 +4,10 @@ class Database(object):
 
     def __init__(self):
         pass
+        self.host = 'mysql.mbcorporate.com.br'
+        self.user = 'mbcorporate01'
+        self.passwd = 'Desafio2017'
+        self.dbname = 'mbcorporate01'
 
     def Inserir(self, usuario, texto):
 
@@ -18,7 +22,7 @@ class Database(object):
         my_passwd = 'Desafio2017'
         my_dbname = 'mbcorporate01'
 
-        connection = MySQLdb.connect(host = my_host, user = my_user, passwd = my_passwd, db = my_dbname, charset='utf8', init_command='SET NAMES UTF8')
+        connection = MySQLdb.connect(host = self.host, user = self.user, passwd = self.passwd, db = self.dbname, charset='utf8', init_command='SET NAMES UTF8')
         cursor = connection.cursor()
         try:
             cursor.execute(q, values)
@@ -26,10 +30,3 @@ class Database(object):
         except:
             connection.rollback()
         connection.close()
-
-
-    # IMPLEMENTAR: vou contar quantos tweets foram gravados no banco.. select count por exemplo .....
-    def query(self, q):
-        cursor = self.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(q)
-        return cursor.fetchall()
