@@ -10,7 +10,7 @@ Comunicando com o Twitter !!!
 	Execute localhost:5000 no seu navegador para testar a página.
 
 	python testes.py
-	Testes automatizados do consumo da API
+	Testes automatizados do consumo da API.
 
 
 * Dependências:
