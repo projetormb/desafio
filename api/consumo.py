@@ -1,10 +1,6 @@
 # -*- coding: latin1 -*-
 
-
-##############################################################################################
 # verificar char set !!!!!!!!!!!!!!!!!
-##############################################################################################
-##############################################################################################
 
 import json
 
@@ -30,27 +26,10 @@ def responseTwitter(screen_name, max_tweets):
 
 def consumoTwitter(screen_name, max_tweets):
 
-    output_file = open('logs.txt', 'w')
-
     retorno = {}
-
-    #response = session.get(url)
-
-    output_file.write('chamar responseTwitter' + '\n\n')
 
     response = responseTwitter(screen_name, max_tweets)
 
-    output_file.write('voltou responseTwitter' + '\n\n')
-    output_file.write('---------------------------------------------------------------\n\n')
-
-
-    ###############################################################################
-    # MELHORAR
-    # MELHORAR
-    # MELHORAR
-    # MELHORAR
-    # MELHORAR
-    ###############################################################################
     if response.status_code == 200:
         pass
     else:
@@ -58,42 +37,15 @@ def consumoTwitter(screen_name, max_tweets):
             return retorno
         else:
             pass
-    ###############################################################################
+
 
 
     tweets = json.loads(response.content)
 
-    # registrando logs em um arquivo texto.
-
-
-    #output_file.write('URL: ' + str(url) + '\n\n')
-    output_file.write('response.status_code: ' + str(response.status_code) + '\n\n')
-    output_file.write('---------------------------------------------------------------\n\n')
-
-    output_file.write('REST retornado (json format): \n\n')
-    output_file.write(str(tweets))
-    output_file.write('\n\n')
-    output_file.write('---------------------------------------------------------------\n\n')
-
     # https://twitter.com/rmbertoni/with_replies
     # Nesta URL é possível visualizar os tweets que a API está me retornando.
 
-    output_file.write('Quantidade tweets: ' + str(len(tweets)) + '\n\n')
-
     if len(tweets) > 0:
-
-        #db = Database()
-
-        output_file.close()
-        output_file = open('logs.txt', 'a')
-
-        for tweet in tweets:
-            output_file.write('tweet: ' + str(tweet) + '\n\n')
-        output_file.write('---------------------------------------------------------------\n\n')
-
-        output_file.close()
-        output_file = open('logs.txt', 'a')
-
         db = Database()
 
         index = -1
@@ -107,49 +59,14 @@ def consumoTwitter(screen_name, max_tweets):
             #tweetLatin = tweetText.decode('latin1')
             #db.Inserir('rmbertoni', tweetLatin)
 
-            output_file.close()
-            output_file = open('logs.txt', 'a')
-
-            output_file.write('Texto de um tweet: ' + str(tweetText) + '\n')
-            #output_file.write('tweetLatin: ' + str(tweetLatin.encode('utf8')) + '\n')
-
-            output_file.close()
-            output_file = open('logs.txt', 'a')
-            output_file.write('inserir no DB: ' + str(tweetText) + '\n')
-            output_file.close()
-            output_file = open('logs.txt', 'a')
-
             ##############################################################################################
             # testar erro de caracteres como emotion icons !!!!!!!!!!!!!
             ##############################################################################################
-            #db.Inserir(screen_name, tweetText)
+            db.Inserir(screen_name, tweetText)
             ##############################################################################################
 
-
-
-            output_file.close()
-            output_file = open('logs.txt', 'a')
-            output_file.write('feito \n')
-
-
-        output_file.write('---------------------------------------------------------------\n\n')
-
-    """
-    output_file.close()
-    output_file = open('logs.txt', 'a')
-    output_file.write('vai retornar o jsonify \n')
-    output_file.write('retorno: ')
-    output_file.write(str(retorno))
-    output_file.write('\n')
-    output_file.write('ate aqui ok: ')
-    output_file.write('\n')
-    """
-
-    output_file.close()
 
     if len(retorno) == 0:
         retorno[0] = 'Nenhum tweet'
 
-
     return retorno
-    #return jsonify(retorno)

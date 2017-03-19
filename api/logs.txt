@@ -1,6 +1,0 @@
-chamar responseTwitter
-
-voltou responseTwitter
-
----------------------------------------------------------------
-

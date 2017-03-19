@@ -25,7 +25,7 @@ class MyTest(unittest2.TestCase):
 
         self.assertEqual(test_responseTwitter('rmbertoni', 1), 200)
         self.assertEqual(test_responseTwitter('lupcoelho', 1), 200)
-        self.assertEqual(test_responseTwitter('accountdontexist', 1), 404)
+        self.assertEqual(test_responseTwitter('containexistente', 1), 404)
 
         print 'Testando consumo da API do Twitter:'
 
@@ -38,7 +38,7 @@ class MyTest(unittest2.TestCase):
         self.assertNotEqual(test_consumoTwitter('lupcoelho', 5000), 2357)
         self.assertEqual(test_consumoTwitter('lupcoelho', 5000), 200)
 
-        self.assertEqual(test_consumoTwitter('accountdontexist', 1), 0)
+        self.assertEqual(test_consumoTwitter('containexistente', 1), 0)
 
 if __name__ == '__main__':
     unittest2.main()

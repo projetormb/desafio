@@ -1,4 +1,4 @@
-# -*- coding: latin1 -*-
+# -*- coding: utf-8 -*-
 
 from flask import Flask, request, render_template, jsonify
 
@@ -12,6 +12,7 @@ def home():
     usuarios = []
     usuarios.append({ 'userID' : 'rmbertoni', 'userName' : 'Rafael Malta Bertoni'})
     usuarios.append({ 'userID' : 'lupcoelho', 'userName' : 'Luciana P. Coelho'})
+    usuarios.append({ 'userID' : 'naoexiste', 'userName' : u'Usuário inexistente'})
 
     return render_template("index.html", usuarios=usuarios), 200
 
