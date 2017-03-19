@@ -13,36 +13,9 @@ class Database(object):
 
     def Inserir(self, usuario, texto):
 
-
-        """        
-        output_file = open('logs.txt', 'a')
-        output_file.write('usuario : ')
-        output_file.write(usuario)
-        output_file.write('\n')
-        output_file.write('texto : ')
-        output_file.write(str(texto))
-        output_file.write('\n')
-        #output_file.close()
-        """
-
-
         values = []
         values.append(usuario.decode('latin1').encode('utf8'))
         values.append(texto.decode('latin1').encode('utf8'))
-
-
-
-
-        """
-        output_file.write('texto decode : ')
-        output_file.write(str(texto))
-        output_file.write('\n')
-        output_file.write('\n')
-        output_file.close()
-        """
-
-
-
 
         q = """INSERT INTO `mbcorporate01`.`UltimosTw` (`Usuario`, `Texto`) VALUES (%s, %s);"""
 

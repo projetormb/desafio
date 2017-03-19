@@ -27,13 +27,10 @@ class MyTest(unittest2.TestCase):
         self.assertEqual(test_responseTwitter('lupcoelho', 1), 200)
         self.assertEqual(test_responseTwitter('containexistente', 1), 404)
 
-
         print 'Testando consumo da API do Twitter:'
 
         self.assertEqual(test_consumoTwitter('rmbertoni', 5), 5)
         self.assertEqual(test_consumoTwitter('lupcoelho', 10), 10)
-        return
-
 
         self.assertNotEqual(test_consumoTwitter('rmbertoni', 5000), 5)
 
