@@ -111,7 +111,6 @@
         function searchSuccess(data, textStatus, jqXHR)
         {
             $('#listaTweets').empty();
-            $('#listaTweets').append('textStatus : ' + textStatus);
 
             $.each( data, function( key, value ) {
                 tweetHtml = '<a href="#" class="list-group-item">'

@@ -4,30 +4,34 @@ Desafio de API
 
 Comunicando com o Twitter !!!
 
-* Execução:
-
-	python tweets.py
-	Execute localhost:5000 no seu navegador para testar a página.
-
-	python testes.py
-	Testes automatizados do consumo da API.
+* Instalação (utilizando como exemplo, uma pasta "repoDesafio" e ambiente virtual como "envDesafio"):
 
 
-* Dependências:
+    mkdir envDesafio
+    virtualenv envDesafio
+    source ./envDesafio/bin/activate
 
+    pip install requests-oauthlib
+    pip install flask
+    pip install unittest2
 
-    'MySQLdb':
-    $ pip install MySQL-python
+    sudo apt-get update
+    sudo apt-get install libmysqlclient-dev
+    sudo apt-get install python-dev
+    pip install mysql-python
 
-    'OAuth1Session' em "requests_oauthlib":
-    $ pip install requests-oauthlib
+    mkdir repoDesafio
+    cd ./repoDesafio/
 
-    'Flask':
-    $ pip install flask
+    git clone https://github.com/projetormb/desafio .
 
-    'Unit Test':
-    $ pip install unittest2
+    cd ./api
 
+    python tweets.py
+    ## Execute localhost:5000 no seu navegador para testar a página.
+
+    python testes.py
+    ## Testes automatizados do consumo da API, resultados serão mostrados no console.
 
 
 
@@ -36,14 +40,3 @@ Comunicando com o Twitter !!!
 1) o banco de dados MySQL está hospedado na Kinghost, em mysql.mbcorporate.com.br
 2) utilizei minha conta no twitter para ativar os tokens de acesso à suas APIs
 3) os resultados podem ser vistos conforme a página https://twitter.com/rmbertoni/with_replies, ou seja, vai trazer N tweets inclusive replies.
-
-
-
-* Referências:
-
-https://pypi.python.org/pypi/requests-oauthlib/0.8.0
-
-
-
-http://pythonclub.com.br/what-the-flask-pt-1-introducao-ao-desenvolvimento-web-com-python.html
-
