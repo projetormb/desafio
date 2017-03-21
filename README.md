@@ -42,8 +42,8 @@ Comunicando com o Twitter !!!
 * Referências:
 
 https://pypi.python.org/pypi/requests-oauthlib/0.8.0
-(usei essa lib para fazer autenticação no Twitter)
+
 
 
 http://pythonclub.com.br/what-the-flask-pt-1-introducao-ao-desenvolvimento-web-com-python.html
-(não conhecia Flask, esse cara me ajudou bastante)
+
