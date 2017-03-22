@@ -1,8 +1,11 @@
 Desafio de API
------------------------------
+---------------
 
 
 Comunicando com o Twitter !!!
+
+Este exemplo em python tem a finalidade de comunicar com a API do twitter, mostrando os últimos tweets e gravando no banco de dados MySQL.
+
 
 * Instalação (utilizando como exemplo, uma pasta "repoDesafio" e ambiente virtual como "envDesafio"):
 
